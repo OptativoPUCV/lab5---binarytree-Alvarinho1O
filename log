@@ -473,3 +473,8 @@ treemap.c:127:27: error: ‘minRight’ undeclared (first use in this function)
 treemap.c:127:27: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 0237171
+Fri 15 Sep 2023 08:49:11 PM UTC: 
+ treemap.c | 1 +
+ 1 file changed, 1 insertion(+)
+ tests:  0|0
+7e4cab0
