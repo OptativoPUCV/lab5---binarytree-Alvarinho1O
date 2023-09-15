@@ -180,7 +180,7 @@ Pair * nextTreeMap(TreeMap * tree){
     }
     TreeNode *currentNode = tree->current;
     if(currentNode->right != NULL){
-        TreeNode *minNode = findMinNode(currentNode->right);
+        TreeNode *minNode = minimum(currentNode->right);
         tree->current = minNode;
         return minNode->pair;
     }
