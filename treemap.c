@@ -168,7 +168,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
         int compare_result = tree->lower_than(key, currentNode->pair->key);
         if(compare_result == 0){
             tree->current = currentNode;
-            return currentNode->pair
+            return currentNode->pair;
         }else if(compare_result < 0){
             ub_node = currentNode;
             currentNode = currentNode->left;
@@ -178,7 +178,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
     }
     if(ub_node != NULL){
         tree->current = ub_node;
-        return ub_node->pair
+        return ub_node->pair;
     }
     return NULL;
 }
