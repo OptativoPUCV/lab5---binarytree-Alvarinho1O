@@ -229,3 +229,40 @@ Fri 15 Sep 2023 07:40:20 PM UTC:
  tests:  11|6
 total_score: 15/70
 9512402
+Fri 15 Sep 2023 07:42:01 PM UTC: 
+ treemap.c | 53 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 53 insertions(+)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:114:7: error: expected ‘;’ before ‘free’
+  114 |       free(node);
+      |       ^~~~
+treemap.c:119:7: error: expected ‘;’ before ‘free’
+  119 |       free(node);
+      |       ^~~~
+treemap.c:126:5: error: expected ‘,’ or ‘;’ before ‘node’
+  126 |     node -> pair = aux -> pair;
+      |     ^~~~
+treemap.c:135:46: error: expected ‘;’ before ‘free’
+  135 |       node -> left -> parent = node -> parent
+      |                                              ^
+      |                                              ;
+  136 |       free(node);
+      |       ~~~~                                    
+treemap.c:145:3: error: expected expression before ‘}’ token
+  145 |   }
+      |   ^
+treemap.c:145:3: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+treemap.c:108:6: note: declared here
+  108 | void removeNode(TreeMap * tree, TreeNode* node) {
+      |      ^~~~~~~~~~
+treemap.c:161:3: error: expected expression before ‘}’ token
+  161 |   }
+      |   ^
+treemap.c:161:3: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+treemap.c:108:6: note: declared here
+  108 | void removeNode(TreeMap * tree, TreeNode* node) {
+      |      ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+f8593d1
