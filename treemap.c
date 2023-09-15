@@ -49,64 +49,32 @@ TreeMap * createTreeMap(int(*lt)(void* key1,void* key2)){
 
 
 void insertTreeMap(TreeMap * tree, void* key, void * value){
-  if (tree == NULL || key == NULL || value == NULL) {
-        return; 
+  TreeNode* current=tree->root;
+  TreeNode* newNode=createTreeNode(key,value);
+
+  while(current!=NULL){
+    if(is_equal(tree,key,current->pair->key)){
+      return;
+    }else if(tree->lower_than(key,current->pair->key)){
+      if(current->left==NULL){
+        current->left=newNode;
+        newNode->parent=current;
+        tree->current=newNode;
+        return;
+      }else{
+        current=current->left;
+      }
+    }else{
+      if (current->right==NULL){
+        current->right=newNode;
+        newNode->parent=current;
+        tree->current=newNode;
+        return;
+      }else{
+        current=current->right;
+      }
     }
-
-    Pair *existingPair = searchTreeMap(tree, key);
-    if (existingPair != NULL) {
-        return; 
-    }
-
-    TreeNode *newNode = (TreeNode *)malloc(sizeof(TreeNode));
-    if (newNode == NULL) {
-        return; 
-    }
-
-    newNode->pair = (Pair *)malloc(sizeof(Pair));
-    if (newNode->pair == NULL) {
-        free(newNode);
-        return; 
-    }
-
-    newNode->pair->key = key;
-    newNode->pair->value = value;
-    newNode->left = NULL;
-    newNode->right = NULL;
-    newNode->parent = NULL;
-
-    if (tree->root == NULL) {
-        tree->root = newNode;
-        tree->current = newNode;
-    } else {
-        TreeNode *currentNode = tree->root;
-
-        while (1) {
-            int compare_result = tree->lower_than(key, currentNode->pair->key);
-
-            if (compare_result < 0) {
-                if (currentNode->left == NULL) {
-                    currentNode->left = newNode;
-                    newNode->parent = currentNode;
-                    tree->current = newNode;
-                    break;
-                } else {
-                    currentNode = currentNode->left;
-                }
-            } else {
-                if (compare_result > 0) {
-                    if (currentNode->right == NULL) {
-                        currentNode->right = newNode;
-                        newNode->parent = currentNode;
-                        tree->current = newNode;
-                        break;
-                    } else {
-                        currentNode = currentNode->right;
-                    }
-                }
-            }
-        }
-    }
+  }
 }
 
 TreeNode * minimum(TreeNode * x){
