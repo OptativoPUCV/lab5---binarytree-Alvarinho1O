@@ -380,3 +380,28 @@ Fri 15 Sep 2023 07:56:47 PM UTC:
  tests:  11|6
 total_score: 15/70
 475b6fc
+Fri 15 Sep 2023 08:18:08 PM UTC: 
+ treemap.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:54:5: error: expected expression before ‘}’ token
+   54 |     }
+      |     ^
+treemap.c:54:5: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+treemap.c:51:6: note: declared here
+   51 | void insertTreeMap(TreeMap * tree, void* key, void * value){
+      |      ^~~~~~~~~~~~~
+test.c:503:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  503 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:606:1: error: expected declaration or statement at end of input
+  606 | }
+      | ^
+At top level:
+test.c:503:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  503 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+cb661b4
