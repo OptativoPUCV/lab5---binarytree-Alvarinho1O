@@ -32,7 +32,7 @@ TreeNode * createTreeNode(void* key, void * value) {
     new->pair = (Pair *)malloc(sizeof(Pair));
     new->pair->key = key;
     new->pair->value = value;
-    new->parent = new->left = new->right = NULL
+    new->parent = new->left = new->right = NULL;
     return new;
 }
 
