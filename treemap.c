@@ -52,7 +52,6 @@ void insertTreeMap(TreeMap * tree, void* key, void * value){
 if (tree == NULL || key == NULL || value == NULL) {
         return; 
     }
-  
     Pair *existingPair = searchTreeMap(tree, key);
     if (existingPair != NULL) {
         return; 
@@ -105,6 +104,7 @@ if (tree == NULL || key == NULL || value == NULL) {
             }
         }
     }
+}
 
 TreeNode * minimum(TreeNode * x){
 
